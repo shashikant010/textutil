@@ -1,4 +1,4 @@
-
+import navbar from './components/navbar';
 import './App.css';
 
 function App() {
@@ -49,6 +49,8 @@ function App() {
     </div>
   </div>
 </nav>
+
+<Navbar/>
 
     </div>
   );
