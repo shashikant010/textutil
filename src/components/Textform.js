@@ -17,7 +17,7 @@ export default function Textform(prop) {
 
     }
     const ontextclick=()=>{
-        if(text=="Enter the text") setText("");
+        if(text==="Enter the text") setText("");
     }
   return (
     <div>
@@ -35,8 +35,8 @@ export default function Textform(prop) {
       defaultValue={""}
     />
   </div>
-  <button className="btn btn1 "onClick={onupbtnclick}>convert to uppercase</button>
-  <button className="btn btn2 "onClick={ondownbtnclick}>convert to Lowercase</button>
+  <button className="btn btn-primary mx-3 my-2 "onClick={onupbtnclick}>convert to uppercase</button>
+  <button className="btn btn-secondary mx-2 "onClick={ondownbtnclick}>convert to Lowercase</button>
 
   <div className="container">
     <h1>Your text summary</h1>
