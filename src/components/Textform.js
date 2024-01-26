@@ -19,6 +19,12 @@ export default function Textform(prop) {
     const ontextclick=()=>{
         if(text==="Enter the text") setText("");
     }
+
+    const handlecopy=()=>{
+      let text=document.getElementById('exampleFormControlTextarea1');
+      text.select();
+      navigator.clipboard.writeText(text.value);
+    }
   return (
     <div>
       <>
@@ -37,6 +43,7 @@ export default function Textform(prop) {
   </div>
   <button className="btn btn-primary mx-3 my-2 "onClick={onupbtnclick}>convert to uppercase</button>
   <button className="btn btn-secondary mx-2 "onClick={ondownbtnclick}>convert to Lowercase</button>
+  <button className="btn btn-primary mx-3 my-2 "onClick={handlecopy}>copy text</button>
 
   <div className="container">
     <h1>Your text summary</h1>
