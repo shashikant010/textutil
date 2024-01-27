@@ -21,10 +21,12 @@ function App() {
     if(mode==='light'){
       setmode('dark');
       showalert('mode is dark mode','success');
+      document.title='Textutil-darkmode'
     }
     else{
       setmode('light');
       showalert('mode is light mode','success');
+      document.title='Textutil-lightmode'
     }
   }
   return (
