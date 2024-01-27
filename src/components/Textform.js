@@ -29,20 +29,33 @@ export default function Textform(prop) {
       let newtext = text.split(/[ ]+/);
       setText(newtext.join(" "))  
     } 
+
+    console.log(prop.mode);
+    
   return (
-    <div>
-      <>
+    <div style={
+     { color:`${prop.mode==='light'?'black':'white'}` ,
+      backgroundColor:`${prop.mode==='light'?'white':'#343a40'}`}
+    }>
+      < >
     <h1>{prop.heading}</h1>
-  <div className="mb-3">
+  <div className="mb-3" style={
+     { color:`${prop.mode==='light'?'black':'white'}` ,
+      backgroundColor:`${prop.mode==='light'?'white':'#343a40'}`}
+    }>
 
     <textarea
+    style={
+      { color:`${prop.mode==='light'?'black':'white'}` ,
+       backgroundColor:`${prop.mode==='light'?'white':'#343a40'}`}
+     }
       className="form-control"
       value={text}
         onChange={ontextchange}
         onClick={ontextclick}
       id="exampleFormControlTextarea1"
       rows={8}
-      defaultValue={""}
+      
     />
   </div>
   <button className="btn btn-primary mx-3 my-2 "onClick={onupbtnclick}>convert to uppercase</button>
@@ -50,7 +63,10 @@ export default function Textform(prop) {
   <button className="btn btn-primary mx-3 my-2 "onClick={handlecopy}>copy text</button>
   <button className="btn btn-secondary mx-2 "onClick={handleExtraspaces}>remove extra spaces</button>
 
-  <div className="container">
+  <div style={
+     { color:`${prop.mode==='light'?'black':'white'}` ,
+      backgroundColor:`${prop.mode==='light'?'white':'#343a40'}`}
+    }>
     <h1>Your text summary</h1>
     <p>your text contain {text.length} characters and {text.split(" ").length} words</p>
     <p>It can be read in {text.split(" ").length*0.008} minutes</p>
@@ -60,5 +76,6 @@ export default function Textform(prop) {
 </>
 
     </div>
+    
   )
 }
