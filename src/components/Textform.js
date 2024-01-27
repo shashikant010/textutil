@@ -9,28 +9,30 @@ export default function Textform(prop) {
     const onupbtnclick=()=>{
         let newText=text.toUpperCase();
         setText(newText);
-
-    }
-    const ondownbtnclick=()=>{
+        prop.alert('text converted to uppercase','success');
+        
+      }
+      const ondownbtnclick=()=>{
         let newText=text.toLowerCase();
         setText(newText);
-
-    }
-    const ontextclick=()=>{
+        prop.alert('text converted to lowercase','success');
+        
+      }
+      const ontextclick=()=>{
         if(text==="Enter the text") setText("");
-    }
-
-    const handlecopy=()=>{
-      let text=document.getElementById('exampleFormControlTextarea1');
-      text.select();
-      navigator.clipboard.writeText(text.value);
-    }
-    const handleExtraspaces=()=>{
-      let newtext = text.split(/[ ]+/);
-      setText(newtext.join(" "))  
+      }
+      
+      const handlecopy=()=>{
+        let text=document.getElementById('exampleFormControlTextarea1');
+        text.select();
+        navigator.clipboard.writeText(text.value);
+        prop.alert('text is copied','success');
+      }
+      const handleExtraspaces=()=>{
+        let newtext = text.split(/[ ]+/);
+        setText(newtext.join(" "))  
+        prop.alert('extra spaces are removed','success');
     } 
-
-    console.log(prop.mode);
     
   return (
     <div style={

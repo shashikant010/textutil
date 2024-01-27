@@ -39,7 +39,7 @@ function App() {
 
 
 <div className="container" >
-<Textform heading="Enter text below to analyze "mode={mode} alert={alert}/>
+<Textform heading="Enter text below to analyze "mode={mode} alert={showalert}/>
 {/* <About/> */}
 </div>
 
