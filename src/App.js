@@ -9,10 +9,14 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link
 } from "react-router-dom";
 
 function App() {
+  const root=document.querySelector('body');
+  let a=root.style.backgroundColor
+  a='black'
+  root.style.color='black';
+
   const [mode,setmode]=useState('light');
   const [alert,setalert]=useState(null);
   const showalert=(message,type)=>{
@@ -29,32 +33,72 @@ function App() {
       setmode('dark');
       showalert('mode is dark mode','success');
       document.title='Textutil-darkmode'
+      togglestyle();
+      changerootstyle();
     }
     else{
       setmode('light');
       showalert('mode is light mode','success');
       document.title='Textutil-lightmode'
+      togglestyle();
+      changerootstyle();
     }
   }
+
+  const changerootstyle=()=>{
+    if(mode==='light'){
+      root.style.backgroundColor='black';
+      root.style.color='white';
+    }
+    else{
+      root.style.backgroundColor='white';
+      root.style.color='black';
+    }
+  }
+
+  const [myStyle,setMyStyle]=useState({
+    color:'black',
+    backgroundColor:'white'
+}
+)
+
+const togglestyle=()=>{
+if(mode==='dark'){
+    setMyStyle(
+        {
+            color:'black',
+            backgroundColor:'white',
+           
+        }
+    )
+              
+}
+else{
+    setMyStyle(
+        {
+            color:'white',
+     backgroundColor:'black'
+        }
+    )
+
+    
+}
+}
+
+
+
   return (
-    <div className="App" style={
-      { color:`${mode==='light'?'black':'white'}` ,
-       backgroundColor:`${mode==='light'?'white':'#343a40'}`}
-     }>
-      
-<Navbar title="textUtils" mode={mode} togglemode={togglemode}/>
+    <div className="App" style={myStyle}>
+  <Router>    
+<Navbar title="textUtils" mode={mode} togglemode={togglemode} toggle={togglestyle}/>
 
 <Alert alert={alert}/>
-<Router>
+
 <Routes>
-          <Route path="/about" element={<About/>}>
-            {/* <About /> */}
-          </Route>
-          <Route path="/" element={<Textform heading="Enter text below to analyze "mode={mode} alert={showalert}/>}>
-          {/* <Textform heading="Enter text below to analyze "mode={mode} alert={showalert}/> */}
+          <Route path="/About" element={<About mode={mode} myStyle={myStyle}/>}/>
+          <Route path="/" element={<Textform heading="Enter text below to analyze "style={myStyle} alert={showalert}/>}/>
             
-          </Route>
-        </Routes>
+</Routes>
         </Router>
 
 

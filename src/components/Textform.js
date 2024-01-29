@@ -36,20 +36,17 @@ export default function Textform(prop) {
     
   return (
     <div style={
-     { color:`${prop.mode==='light'?'black':'white'}` ,
-      backgroundColor:`${prop.mode==='light'?'white':'#343a40'}`}
+    prop.style
     }>
       < >
     <h1>{prop.heading}</h1>
   <div className="mb-3" style={
-     { color:`${prop.mode==='light'?'black':'white'}` ,
-      backgroundColor:`${prop.mode==='light'?'white':'#343a40'}`}
+      prop.style
     }>
 
     <textarea
     style={
-      { color:`${prop.mode==='light'?'black':'white'}` ,
-       backgroundColor:`${prop.mode==='light'?'white':'#343a40'}`}
+   prop.style
      }
       className="form-control"
       value={text}
@@ -66,8 +63,7 @@ export default function Textform(prop) {
   <button className="btn btn-secondary mx-2 "onClick={handleExtraspaces}>remove extra spaces</button>
 
   <div style={
-     { color:`${prop.mode==='light'?'black':'white'}` ,
-      backgroundColor:`${prop.mode==='light'?'white':'#343a40'}`}
+     prop.style
     }>
     <h1>Your text summary</h1>
     <p>your text contain {text.length} characters and {text.split(" ").length} words</p>
